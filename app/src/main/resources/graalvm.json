@@ -1,0 +1,59 @@
+[
+  {
+    "name": "sun.misc.Unsafe",
+    "fields": [
+      {
+        "name": "theUnsafe",
+        "allowUnsafeAccess": true
+      }
+    ]
+  },
+  {
+    "name": "profile2schema.ProfileJSON",
+    "allPublicMethods": true,
+    "allDeclaredFields": true,
+    "fields": [],
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "profile2schema.DatasetProfile",
+    "allPublicMethods": true,
+    "allDeclaredFields": true,
+    "fields": [],
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.arrow.vector.types.pojo.Field",
+    "allPublicMethods": true,
+    "allDeclaredFields": true,
+    "fields": [],
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.arrow.vector.types.pojo.Schema",
+    "allPublicMethods": true,
+    "allDeclaredFields": true,
+    "fields": [],
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  }
+]
