@@ -1,4 +1,4 @@
-## [0.1.0] - 2023-02-13
+## [v0.1.0] - 2023-02-13
 
 ### added
 
@@ -6,6 +6,4 @@
 - supports reading a profile.json (text or zip file containing the profile) and either outputs arrow schema represented as JSON to standard out or to a directory
 
 
-[0.1.0]: https://github.com/rsvihladremio/profile2schema/releases/tag/v0.0.1
-
-
+[v0.1.0]: https://github.com/rsvihladremio/profile2schema/releases/tag/v0.1.0
