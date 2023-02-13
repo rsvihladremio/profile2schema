@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'org.graalvm.buildtools.native' version '0.9.19'                                                                                                                                                            
 }
 
 repositories {
@@ -30,6 +31,16 @@ dependencies {
 
 }
 
+jar {                                                                                                                                                                                                              
+    manifest {                                                                                                                                                                                                     
+        attributes "Main-Class": "profile2schema.App", "Implementation-Version": "0.1.0"                                                                                                                               
+    }                                                                                                                                                                                                              
+    from {                                                                                                                                                                                                         
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }                                                                                                                            
+    }                                                                                                                                                                                                              
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE                                                                                                                                                                
+}
+
 compileJava {
     options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
 }
@@ -43,3 +54,15 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+graalvmNative {                                                                                                                                                                                                    
+    useArgFile = false // required for older GraalVM releases                                                                                                                                                      
+    binaries {                                                                                                                                                                                                     
+        main {                                                                                                                                                                                                     
+            imageName = 'profile2schema' // The name of the native image, defaults to the project name                                                                                                                 
+            mainClass = 'profile2schema.App'                                                                                                                                                                           
+            useFatJar = true                                                                                                                                                                                       
+        }                                                                                                                                                                                                          
+    }                                                                                                                                                                                                              
+}                                                                                                                                                                                                                  
+   
