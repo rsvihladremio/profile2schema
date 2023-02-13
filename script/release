@@ -23,9 +23,9 @@ fi
 
 
 # depends on brew install zip
-cd build/native/nativeCompile
+cd app/build/native/nativeCompile
 zip $EXEC-$VERSION-$OS-$ARCH.zip $EXEC
 
-cd ../../../
+cd ../../../../
 # depends on brew install gh
-gh release create $TAG --title $VERSION -F CHANGELOG.MD ./build/native/nativeCompile/$EXEC-$VERSION-$OS-$ARCH.zip
+gh release create $TAG --title $VERSION -F CHANGELOG.md ./app/build/native/nativeCompile/$EXEC-$VERSION-$OS-$ARCH.zip
