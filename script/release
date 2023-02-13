@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# script/release: build a single binary for this system, cut a github release
+#                 and push the new build up to it
+
+
+if [[ -z "$1" ]]; then
+    echo "missing tag to release to. run script again with the target tag to upload assets"
+   exit 1;
+fi
+
+EXEC="profile2schema"
+TAG=$1
+VERSION=$(echo $TAG)
+
+./script/build
+OS=$(uname)
+ARCH=$(uname -m)
+
+if [[ "$ARCH" == "x86_64" ]]; then
+    ARCH="amd64"
+fi
+
+
+# depends on brew install zip
+cd build/native/nativeCompile
+zip $EXEC-$VERSION-$OS-$ARCH.zip $EXEC
+
+cd ../../../
+# depends on brew install gh
+gh release create $TAG --title $VERSION -F CHANGELOG.MD ./build/native/nativeCompile/$EXEC-$VERSION-$OS-$ARCH.zip
